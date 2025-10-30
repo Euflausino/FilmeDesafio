@@ -3,8 +3,6 @@ package com.bradesco.capacitacao_filmes.entities;
 import java.time.LocalDate;
 import java.util.Objects;
 
-import com.bradesco.capacitacao_filmes.dto.filme.FilmeCadastroDTO;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -34,12 +32,12 @@ public class Filme {
 		
 	}
 
-	public Filme(FilmeCadastroDTO dto) {
-		this.titulo = dto.titulo();
-		this.dataLancamento = dto.dataLancamento();
-		this.nota = dto.nota();
-		this.genero = dto.genero();
-		this.diretor = dto.diretor();
+	public Filme(String titulo,  LocalDate dataLancamento, Integer nota, String genero, String diretor) {
+		this.titulo = titulo;
+		this.dataLancamento = dataLancamento;
+		this.nota = nota;
+		this.genero = genero;
+		this.diretor = diretor;
 	}
 
 	public Long getId() {
@@ -88,18 +86,6 @@ public class Filme {
 
 	public void setDiretor(String diretor) {
 		this.diretor = diretor;
-	}
-	
-	public String getClassificacao() {
-		switch (nota) {
-		case 1: return "Esse é ruim demais!";
-		case 2: return "Ok!";
-		case 3: return "Bom!";
-		case 4: return "Excelente!";
-		case 5: return "Absolute cinema!";
-		default:
-			return null;
-		}
 	}
 
 	@Override

@@ -1,11 +1,10 @@
 package com.bradesco.capacitacao_filmes.controller;
 
+import java.net.URI;
 import java.time.LocalDate;
 
-import com.bradesco.capacitacao_filmes.dto.filme.AtualizarFilmeDTO;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.bradesco.capacitacao_filmes.dto.AtualizarFilmeDTO;
 import org.springframework.data.domain.Page;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,20 +16,22 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.bradesco.capacitacao_filmes.dto.filme.FilmeCadastroDTO;
-import com.bradesco.capacitacao_filmes.dto.filme.FilmeResponseDTO;
-import com.bradesco.capacitacao_filmes.service.filme.FilmeService;
+import com.bradesco.capacitacao_filmes.dto.FilmeCadastroDTO;
+import com.bradesco.capacitacao_filmes.dto.FilmeResponseDTO;
+import com.bradesco.capacitacao_filmes.service.FilmeService;
 
 import jakarta.validation.Valid;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 @RestController
 @RequestMapping(value="/filmes")
 public class FilmeController {
 
-    
-	
-	@Autowired
-	private FilmeService service;
+	private final FilmeService service;
+
+    public FilmeController(FilmeService service) {
+        this.service = service;
+    }
 
 	@GetMapping(value="/listar")
 	public ResponseEntity<Page<FilmeResponseDTO>> listarTodos(){
@@ -39,8 +40,13 @@ public class FilmeController {
 	
 	@PostMapping(value="/cadastrar")
 	public ResponseEntity<FilmeResponseDTO> cadastrarFilme(@RequestBody @Valid FilmeCadastroDTO dto){
-
-			return ResponseEntity.status(HttpStatus.CREATED).body(service.cadastrarUmFilme(dto));
+        FilmeResponseDTO filmeCadastrado = service.cadastrarUmFilme(dto);
+        URI uri = ServletUriComponentsBuilder
+                .fromCurrentContextPath()
+                .path("/filmes/{id}")
+                .buildAndExpand(filmeCadastrado.id())
+                .toUri();
+			return ResponseEntity.created(uri).body(filmeCadastrado);
 		
 	}
 	

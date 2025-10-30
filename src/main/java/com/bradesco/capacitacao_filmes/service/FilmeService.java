@@ -1,11 +1,11 @@
-package com.bradesco.capacitacao_filmes.service.filme;
+package com.bradesco.capacitacao_filmes.service;
 
 import java.time.LocalDate;
 
-import com.bradesco.capacitacao_filmes.dto.filme.AtualizarFilmeDTO;
-import com.bradesco.capacitacao_filmes.dto.filme.FilmeCadastroDTO;
-import com.bradesco.capacitacao_filmes.dto.filme.FilmeMapper;
-import com.bradesco.capacitacao_filmes.dto.filme.FilmeResponseDTO;
+import com.bradesco.capacitacao_filmes.dto.AtualizarFilmeDTO;
+import com.bradesco.capacitacao_filmes.dto.FilmeCadastroDTO;
+import com.bradesco.capacitacao_filmes.dto.FilmeMapper;
+import com.bradesco.capacitacao_filmes.dto.FilmeResponseDTO;
 import com.bradesco.capacitacao_filmes.exception.filme.FilmeNaoEncontradoException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -21,21 +21,13 @@ public class FilmeService {
 	private FilmeRepository repository;
 	
 	public Page<FilmeResponseDTO> listarFilmes(){
-		return FilmeMapper.toResponseDTOList(repository.findAll());
+		return FilmeMapper.toResponsePageDTO(repository.findAll());
 	}
 	
 	public FilmeResponseDTO cadastrarUmFilme(FilmeCadastroDTO filme) {
         Filme filmeEntity = FilmeMapper.toEntity(filme);
 		repository.save(filmeEntity);
         return FilmeMapper.dtoResponse(filmeEntity);
-	}
-	
-	public Filme atualizarFilme(Long id, Filme filmeAtualizado) {
-		if(repository.existsById(id)) {
-			filmeAtualizado.setId(id);
-			return repository.save(filmeAtualizado);
-		}
-		return null;
 	}
 	
 	public void deletarFilme(Long id) {
@@ -45,7 +37,7 @@ public class FilmeService {
 	
 	public Page<FilmeResponseDTO> buscarPorDiretor(String diretor){
 
-        return FilmeMapper.toResponseDTOList(repository.findByDiretorContainingIgnoreCase(diretor));
+        return FilmeMapper.toResponsePageDTO(repository.findByDiretorContainingIgnoreCase(diretor));
 	}
 	
 	public FilmeResponseDTO buscarPorId(Long id){
@@ -53,19 +45,19 @@ public class FilmeService {
 	}
 	
 	public Page<FilmeResponseDTO> buscarPorNome(String titulo){
-		return FilmeMapper.toResponseDTOList(repository.findByTituloContainingIgnoreCase(titulo));
+		return FilmeMapper.toResponsePageDTO(repository.findByTituloContainingIgnoreCase(titulo));
 	}
 	
 	public Page<FilmeResponseDTO> buscarPorGenero(String genero){
-		return FilmeMapper.toResponseDTOList(repository.findByGeneroContainingIgnoreCase(genero));
+		return FilmeMapper.toResponsePageDTO(repository.findByGeneroContainingIgnoreCase(genero));
 	}
 	
 	public Page<FilmeResponseDTO> buscarPorNota(Integer nota){
-		return FilmeMapper.toResponseDTOList(repository.findByNota(nota));
+		return FilmeMapper.toResponsePageDTO(repository.findByNota(nota));
 	}
 	
 	public Page<FilmeResponseDTO> buscarPorData(LocalDate dataInicio, LocalDate dataFim){
-		return FilmeMapper.toResponseDTOList(repository.findByDataLancamentoBetweenOrderByNotaDesc(dataInicio, dataFim));
+		return FilmeMapper.toResponsePageDTO(repository.findByDataLancamentoBetweenOrderByNotaDesc(dataInicio, dataFim));
 	}
 
     public FilmeResponseDTO atualizarFilme(Long id, AtualizarFilmeDTO filmeAtualizado) {

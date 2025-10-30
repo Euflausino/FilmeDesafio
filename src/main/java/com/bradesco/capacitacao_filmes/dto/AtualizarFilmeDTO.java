@@ -1,4 +1,4 @@
-package com.bradesco.capacitacao_filmes.dto.filme;
+package com.bradesco.capacitacao_filmes.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 

@@ -1,28 +1,21 @@
-package com.bradesco.capacitacao_filmes.dto.filme;
+package com.bradesco.capacitacao_filmes.dto;
 
 import java.util.List;
 
 import com.bradesco.capacitacao_filmes.entities.Filme;
-import com.bradesco.capacitacao_filmes.repository.FilmeRepository;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 
 public class FilmeMapper {
-	
-	private static FilmeRepository filmeRepository;
-
-    public FilmeMapper(FilmeRepository filmeRepository) {
-        this.filmeRepository = filmeRepository;
-    }
 
     public static Filme toEntity(FilmeCadastroDTO dto) {
-		Filme filmeSave = new Filme();
-		filmeSave.setTitulo(dto.titulo());
-		filmeSave.setDataLancamento(dto.dataLancamento());
-		filmeSave.setNota(dto.nota());
-		filmeSave.setGenero(dto.genero());
-		filmeSave.setDiretor(dto.diretor());
-		return filmeSave;
+		return new Filme(
+                dto.titulo(),
+                dto.dataLancamento(),
+                dto.nota(),
+                dto.genero(),
+                dto.diretor()
+        );
 	}
 	
 	public static FilmeResponseDTO dtoResponse(Filme toEntity) {
@@ -34,11 +27,18 @@ public class FilmeMapper {
 				toEntity.getNota(),
 				toEntity.getGenero(),
 				toEntity.getDiretor(),
-				toEntity.getClassificacao()
-				);
+                switch (toEntity.getNota()){
+                    case 1 -> "Esse é ruim demais!";
+                    case 2 -> "Ok!";
+                    case 3 ->  "Bom!";
+                    case 4 ->  "Excelente!";
+                    case 5 ->  "Absolute cinema!";
+                    default -> null;
+                }
+        );
 	}
 	
-	public static Page<FilmeResponseDTO> toResponseDTOList(List<Filme> filmes) {
+	public static Page<FilmeResponseDTO> toResponsePageDTO(List<Filme> filmes) {
 	    List<FilmeResponseDTO> retorno = filmes.stream()
 	                 .map(FilmeMapper::dtoResponse).toList();
         return new PageImpl<>(retorno);
