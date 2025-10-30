@@ -6,6 +6,7 @@ import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.List;
 
+import com.bradesco.capacitacao_filmes.service.filme.FilmeService;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -13,9 +14,9 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import com.bradesco.capacitacao_filmes.dto.FilmeCadastroDTO;
-import com.bradesco.capacitacao_filmes.dto.FilmeMapper;
-import com.bradesco.capacitacao_filmes.dto.FilmeResponseDTO;
+import com.bradesco.capacitacao_filmes.dto.filme.FilmeCadastroDTO;
+import com.bradesco.capacitacao_filmes.dto.filme.FilmeMapper;
+import com.bradesco.capacitacao_filmes.dto.filme.FilmeResponseDTO;
 import com.bradesco.capacitacao_filmes.entities.Filme;
 import com.bradesco.capacitacao_filmes.repository.FilmeRepository;
 

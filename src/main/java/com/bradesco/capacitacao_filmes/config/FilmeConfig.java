@@ -8,8 +8,8 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 
-import com.bradesco.capacitacao_filmes.dto.FilmeCadastroDTO;
-import com.bradesco.capacitacao_filmes.dto.FilmeMapper;
+import com.bradesco.capacitacao_filmes.dto.filme.FilmeCadastroDTO;
+import com.bradesco.capacitacao_filmes.dto.filme.FilmeMapper;
 import com.bradesco.capacitacao_filmes.entities.Filme;
 import com.bradesco.capacitacao_filmes.repository.FilmeRepository;
 

@@ -1,15 +1,12 @@
-package com.bradesco.capacitacao_filmes.service;
+package com.bradesco.capacitacao_filmes.service.filme;
 
 import java.time.LocalDate;
-import java.util.List;
-import java.util.Optional;
 
-import com.bradesco.capacitacao_filmes.dto.AtualizarFilmeDTO;
-import com.bradesco.capacitacao_filmes.dto.FilmeCadastroDTO;
-import com.bradesco.capacitacao_filmes.dto.FilmeMapper;
-import com.bradesco.capacitacao_filmes.dto.FilmeResponseDTO;
-import com.bradesco.capacitacao_filmes.exception.FilmeNaoEncontradoException;
-import org.apache.catalina.mapper.Mapper;
+import com.bradesco.capacitacao_filmes.dto.filme.AtualizarFilmeDTO;
+import com.bradesco.capacitacao_filmes.dto.filme.FilmeCadastroDTO;
+import com.bradesco.capacitacao_filmes.dto.filme.FilmeMapper;
+import com.bradesco.capacitacao_filmes.dto.filme.FilmeResponseDTO;
+import com.bradesco.capacitacao_filmes.exception.filme.FilmeNaoEncontradoException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;

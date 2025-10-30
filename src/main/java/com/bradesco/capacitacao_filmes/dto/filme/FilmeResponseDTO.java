@@ -1,4 +1,4 @@
-package com.bradesco.capacitacao_filmes.dto;
+package com.bradesco.capacitacao_filmes.dto.filme;
 
 import java.time.LocalDate;
 

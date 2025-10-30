@@ -1,7 +1,6 @@
-package com.bradesco.capacitacao_filmes.dto;
+package com.bradesco.capacitacao_filmes.dto.filme;
 
 import java.util.List;
-import java.util.Optional;
 
 import com.bradesco.capacitacao_filmes.entities.Filme;
 import com.bradesco.capacitacao_filmes.repository.FilmeRepository;

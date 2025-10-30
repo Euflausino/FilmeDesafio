@@ -1,10 +1,8 @@
 package com.bradesco.capacitacao_filmes.controller;
 
 import java.time.LocalDate;
-import java.util.Collections;
-import java.util.List;
 
-import com.bradesco.capacitacao_filmes.dto.AtualizarFilmeDTO;
+import com.bradesco.capacitacao_filmes.dto.filme.AtualizarFilmeDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
@@ -19,11 +17,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.bradesco.capacitacao_filmes.dto.FilmeCadastroDTO;
-import com.bradesco.capacitacao_filmes.dto.FilmeMapper;
-import com.bradesco.capacitacao_filmes.dto.FilmeResponseDTO;
-import com.bradesco.capacitacao_filmes.entities.Filme;
-import com.bradesco.capacitacao_filmes.service.FilmeService;
+import com.bradesco.capacitacao_filmes.dto.filme.FilmeCadastroDTO;
+import com.bradesco.capacitacao_filmes.dto.filme.FilmeResponseDTO;
+import com.bradesco.capacitacao_filmes.service.filme.FilmeService;
 
 import jakarta.validation.Valid;
 

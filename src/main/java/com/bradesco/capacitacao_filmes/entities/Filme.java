@@ -3,7 +3,7 @@ package com.bradesco.capacitacao_filmes.entities;
 import java.time.LocalDate;
 import java.util.Objects;
 
-import com.bradesco.capacitacao_filmes.dto.FilmeCadastroDTO;
+import com.bradesco.capacitacao_filmes.dto.filme.FilmeCadastroDTO;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
