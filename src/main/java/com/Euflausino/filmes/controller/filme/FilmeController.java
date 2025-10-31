@@ -1,9 +1,9 @@
-package com.Euflausino.filmes.controller;
+package com.Euflausino.filmes.controller.filme;
 
 import java.net.URI;
 import java.time.LocalDate;
 
-import com.Euflausino.filmes.dto.AtualizarFilmeDTO;
+import com.Euflausino.filmes.dto.filme.AtualizarFilmeDTO;
 import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -16,9 +16,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.Euflausino.filmes.dto.FilmeCadastroDTO;
-import com.Euflausino.filmes.dto.FilmeResponseDTO;
-import com.Euflausino.filmes.service.FilmeService;
+import com.Euflausino.filmes.dto.filme.FilmeCadastroDTO;
+import com.Euflausino.filmes.dto.filme.FilmeResponseDTO;
+import com.Euflausino.filmes.service.filme.FilmeService;
 
 import jakarta.validation.Valid;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;

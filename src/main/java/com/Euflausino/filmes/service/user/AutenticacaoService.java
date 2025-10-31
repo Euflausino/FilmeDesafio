@@ -1,11 +1,11 @@
-package com.Euflausino.filmes.service;
+package com.Euflausino.filmes.service.user;
 
-import com.Euflausino.filmes.dto.UserCadastroDTO;
-import com.Euflausino.filmes.dto.UserLoginDTO;
-import com.Euflausino.filmes.dto.UserResponseDTO;
-import com.Euflausino.filmes.entities.User;
-import com.Euflausino.filmes.mapper.UserMapper;
-import com.Euflausino.filmes.repository.UsuarioRepository;
+import com.Euflausino.filmes.dto.user.UserCadastroDTO;
+import com.Euflausino.filmes.dto.user.UserLoginDTO;
+import com.Euflausino.filmes.dto.user.UserResponseDTO;
+import com.Euflausino.filmes.entities.user.User;
+import com.Euflausino.filmes.mapper.user.UserMapper;
+import com.Euflausino.filmes.repository.user.UsuarioRepository;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -22,6 +22,7 @@ public class AutenticacaoService implements UserDetailsService {
     private final AuthenticationManager authenticationManager;
     private final UsuarioRepository repository;
     private final PasswordEncoder passwordEncoder;
+    TokenService tokenService;
 
     public AutenticacaoService(UsuarioRepository repository, @Lazy AuthenticationManager authenticationManager, PasswordEncoder passwordEncoder) {
         this.repository = repository;

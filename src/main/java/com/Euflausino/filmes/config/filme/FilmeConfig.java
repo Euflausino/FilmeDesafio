@@ -1,4 +1,4 @@
-package com.Euflausino.filmes.config;
+package com.Euflausino.filmes.config.filme;
 
 import java.time.LocalDate;
 import java.util.Arrays;
@@ -7,10 +7,10 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 
-import com.Euflausino.filmes.dto.FilmeCadastroDTO;
-import com.Euflausino.filmes.mapper.FilmeMapper;
-import com.Euflausino.filmes.entities.Filme;
-import com.Euflausino.filmes.repository.FilmeRepository;
+import com.Euflausino.filmes.dto.filme.FilmeCadastroDTO;
+import com.Euflausino.filmes.mapper.filme.FilmeMapper;
+import com.Euflausino.filmes.entities.filme.Filme;
+import com.Euflausino.filmes.repository.filme.FilmeRepository;
 
 @Configuration // executa a aplicaçao em contexto especifico, conforme no app.properts
 @Profile("test") //executa a classe sempre que logado no perfil de teste no .properts

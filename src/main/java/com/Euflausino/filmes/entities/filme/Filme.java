@@ -1,4 +1,4 @@
-package com.Euflausino.filmes.entities;
+package com.Euflausino.filmes.entities.filme;
 
 import java.time.LocalDate;
 import java.util.Objects;

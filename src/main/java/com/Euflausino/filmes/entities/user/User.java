@@ -1,4 +1,4 @@
-package com.Euflausino.filmes.entities;
+package com.Euflausino.filmes.entities.user;
 
 import jakarta.persistence.*;
 import org.springframework.security.core.GrantedAuthority;

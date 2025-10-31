@@ -1,6 +1,7 @@
 package com.Euflausino.filmes.exception;
 
 import com.Euflausino.filmes.exception.filme.FilmeNaoEncontradoException;
+import com.auth0.jwt.exceptions.JWTCreationException;
 import jakarta.validation.ConstraintViolationException;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
@@ -49,6 +50,11 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(BadCredentialsException.class)
     public ResponseEntity<ResponseError> handleBadCredentialsException(BadCredentialsException ex){
         return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(new ResponseError(ex.getMessage(), HttpStatus.UNAUTHORIZED.value()));
+    }
+
+    @ExceptionHandler(JWTCreationException.class)
+    public ResponseEntity<ResponseError> handleJWTCreationException(JWTCreationException ex){
+        return ResponseEntity.badRequest().body(new ResponseError(ex.getMessage(), HttpStatus.BAD_REQUEST.value()));
     }
 
 }

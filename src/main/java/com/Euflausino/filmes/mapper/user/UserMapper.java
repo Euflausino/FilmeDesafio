@@ -1,9 +1,10 @@
-package com.Euflausino.filmes.mapper;
+package com.Euflausino.filmes.mapper.user;
 
 
-import com.Euflausino.filmes.dto.UserCadastroDTO;
-import com.Euflausino.filmes.dto.UserResponseDTO;
-import com.Euflausino.filmes.entities.User;
+import com.Euflausino.filmes.dto.user.TokenResponseDTO;
+import com.Euflausino.filmes.dto.user.UserCadastroDTO;
+import com.Euflausino.filmes.dto.user.UserResponseDTO;
+import com.Euflausino.filmes.entities.user.User;
 
 public class UserMapper {
 
@@ -20,6 +21,10 @@ public class UserMapper {
                 user.getUsername(),
                 user.getEmail()
         );
+    }
+
+    public static TokenResponseDTO mapToken(String token){
+        return new TokenResponseDTO(token);
     }
 
 }

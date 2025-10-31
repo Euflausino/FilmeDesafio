@@ -1,6 +1,6 @@
-package com.Euflausino.filmes.repository;
+package com.Euflausino.filmes.repository.user;
 
-import com.Euflausino.filmes.entities.User;
+import com.Euflausino.filmes.entities.user.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.security.core.userdetails.UserDetails;
 

@@ -1,10 +1,10 @@
-package com.Euflausino.filmes.mapper;
+package com.Euflausino.filmes.mapper.filme;
 
 import java.util.List;
 
-import com.Euflausino.filmes.dto.FilmeCadastroDTO;
-import com.Euflausino.filmes.dto.FilmeResponseDTO;
-import com.Euflausino.filmes.entities.Filme;
+import com.Euflausino.filmes.dto.filme.FilmeCadastroDTO;
+import com.Euflausino.filmes.dto.filme.FilmeResponseDTO;
+import com.Euflausino.filmes.entities.filme.Filme;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 

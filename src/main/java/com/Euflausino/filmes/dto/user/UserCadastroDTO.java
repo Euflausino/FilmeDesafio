@@ -1,4 +1,4 @@
-package com.Euflausino.filmes.dto;
+package com.Euflausino.filmes.dto.user;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;

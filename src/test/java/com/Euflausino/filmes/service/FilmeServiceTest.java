@@ -6,6 +6,7 @@ import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.List;
 
+import com.Euflausino.filmes.service.filme.FilmeService;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -13,11 +14,11 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import com.Euflausino.filmes.dto.FilmeCadastroDTO;
-import com.Euflausino.filmes.mapper.FilmeMapper;
-import com.Euflausino.filmes.dto.FilmeResponseDTO;
-import com.Euflausino.filmes.entities.Filme;
-import com.Euflausino.filmes.repository.FilmeRepository;
+import com.Euflausino.filmes.dto.filme.FilmeCadastroDTO;
+import com.Euflausino.filmes.mapper.filme.FilmeMapper;
+import com.Euflausino.filmes.dto.filme.FilmeResponseDTO;
+import com.Euflausino.filmes.entities.filme.Filme;
+import com.Euflausino.filmes.repository.filme.FilmeRepository;
 import org.springframework.data.domain.Page;
 
 @ExtendWith(MockitoExtension.class)

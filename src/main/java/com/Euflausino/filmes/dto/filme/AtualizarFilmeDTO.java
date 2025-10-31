@@ -1,4 +1,4 @@
-package com.Euflausino.filmes.dto;
+package com.Euflausino.filmes.dto.filme;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 

@@ -1,18 +1,18 @@
-package com.Euflausino.filmes.service;
+package com.Euflausino.filmes.service.filme;
 
 import java.time.LocalDate;
 
-import com.Euflausino.filmes.dto.AtualizarFilmeDTO;
-import com.Euflausino.filmes.dto.FilmeCadastroDTO;
-import com.Euflausino.filmes.mapper.FilmeMapper;
-import com.Euflausino.filmes.dto.FilmeResponseDTO;
+import com.Euflausino.filmes.dto.filme.AtualizarFilmeDTO;
+import com.Euflausino.filmes.dto.filme.FilmeCadastroDTO;
+import com.Euflausino.filmes.mapper.filme.FilmeMapper;
+import com.Euflausino.filmes.dto.filme.FilmeResponseDTO;
 import com.Euflausino.filmes.exception.filme.FilmeNaoEncontradoException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 
-import com.Euflausino.filmes.entities.Filme;
-import com.Euflausino.filmes.repository.FilmeRepository;
+import com.Euflausino.filmes.entities.filme.Filme;
+import com.Euflausino.filmes.repository.filme.FilmeRepository;
 
 @Service
 public class FilmeService {
