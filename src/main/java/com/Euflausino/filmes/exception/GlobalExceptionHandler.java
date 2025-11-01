@@ -2,6 +2,7 @@ package com.Euflausino.filmes.exception;
 
 import com.Euflausino.filmes.exception.filme.FilmeNaoEncontradoException;
 import com.auth0.jwt.exceptions.JWTCreationException;
+import com.auth0.jwt.exceptions.JWTVerificationException;
 import jakarta.validation.ConstraintViolationException;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
@@ -12,6 +13,7 @@ import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
+import org.springframework.web.client.HttpClientErrorException;
 
 @RestControllerAdvice
 public class GlobalExceptionHandler {
@@ -55,6 +57,21 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(JWTCreationException.class)
     public ResponseEntity<ResponseError> handleJWTCreationException(JWTCreationException ex){
         return ResponseEntity.badRequest().body(new ResponseError(ex.getMessage(), HttpStatus.BAD_REQUEST.value()));
+    }
+
+    @ExceptionHandler(RuntimeException.class)
+    public ResponseEntity<ResponseError> handleRuntimeException(RuntimeException ex){
+        return ResponseEntity.internalServerError().body(new ResponseError(ex.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR.value()));
+    }
+
+    @ExceptionHandler(JWTVerificationException.class)
+    public ResponseEntity<ResponseError> handleJWTVerificationException(JWTVerificationException ex){
+        return ResponseEntity.badRequest().body(new ResponseError(ex.getMessage(), HttpStatus.BAD_REQUEST.value()));
+    }
+
+    @ExceptionHandler(HttpClientErrorException.Forbidden.class)
+    public ResponseEntity<ResponseError> handleHttpClientErrorException(HttpClientErrorException.Forbidden ex){
+        return ResponseEntity.status(HttpStatus.FORBIDDEN).body(new ResponseError(ex.getMessage(), HttpStatus.FORBIDDEN.value()));
     }
 
 }
